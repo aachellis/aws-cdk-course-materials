@@ -17,7 +17,7 @@ class ParameterStoreStack(Stack):
 
         string_param_lookup = ssm.StringParameter.value_from_lookup(self, "string-parameter")
 
-        secure_string_param = ssm.StringParameter.value_from_secure_string_parameter(self, "secure-parameter", 1)
+        secure_string_param = ssm.StringParameter.value_for_secure_string_parameter(self, "secure-parameter", 1)
 
         CfnOutput(self, "deployment-parameter", value=string_param)
 
