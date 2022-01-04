@@ -30,4 +30,4 @@ class ParameterStoreStack(Stack):
 
         CfnOutput(self, 'synthesis-parameter', value=string_param_lookup)
 
-        CfnOutput(self, 'secure-string-parameter', value=secure_string_param)
+        # CfnOutput(self, 'secure-string-parameter', value=secure_string_param)
