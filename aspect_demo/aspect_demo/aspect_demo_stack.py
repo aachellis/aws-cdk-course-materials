@@ -65,5 +65,6 @@ class AspectDemoStack(Stack):
 class EncryptionAspect:
     def visit(self, construct):
         if isinstance(construct, s3.CfnBucket):
-            print("------")
-            print(type(construct))
+            if str(construct.bucket_name) == "demo-dest-865":
+                print("------")
+                print(type(construct))
