@@ -14,7 +14,7 @@ DemoAppStack(app, "DemoAppStack",
     env=default, prod_env=False
 )
 
-DemoAppStack(app, "DemoAppStack",
+DemoAppStack(app, "DemoAppStackProd",
     env=prod, prod_env=True
 )
 
