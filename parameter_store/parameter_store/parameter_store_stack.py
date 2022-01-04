@@ -1,6 +1,8 @@
 from aws_cdk import (
     # Duration,
     Stack,
+    aws_ssm as ssm,
+    CfnOutput,
     # aws_sqs as sqs,
 )
 from constructs import Construct
@@ -11,9 +13,6 @@ class ParameterStoreStack(Stack):
         super().__init__(scope, construct_id, **kwargs)
 
         # The code that defines your stack goes here
+        string_param = ssm.StringParameter.value_for_string_parameter(self, "string-parameter")
 
-        # example resource
-        # queue = sqs.Queue(
-        #     self, "ParameterStoreQueue",
-        #     visibility_timeout=Duration.seconds(300),
-        # )
+        CfnOutput(self, "parameter", value=string_param)
