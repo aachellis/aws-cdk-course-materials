@@ -2,7 +2,9 @@ from aws_cdk import (
     # Duration,
     Stack,
     aws_ssm as ssm,
+    aws_iam as iam,
     CfnOutput,
+    Secretvalue,
     # aws_sqs as sqs,
 )
 from constructs import Construct
@@ -17,7 +19,12 @@ class ParameterStoreStack(Stack):
 
         string_param_lookup = ssm.StringParameter.value_from_lookup(self, "string-parameter")
 
-        secure_string_param = ssm.StringParameter.value_for_secure_string_parameter(self, "secure-parameter", 1)
+        secure_string_param = Secretvalue.ssm_secure('secure-parameter', '1')
+
+        iam.User(
+            self, "user",
+            password=secure_string_param
+        )
 
         CfnOutput(self, "deployment-parameter", value=string_param)
 
