@@ -66,5 +66,5 @@ class EncryptionAspect:
     def visit(self, construct):
         if isinstance(construct, s3.CfnBucket):
             if str(construct.bucket_name) == "demo-dest-865":
-                print("------")
-                print(type(construct))
+                if str(construct.bucket_encryption) == 'None':
+                    construct.node.add_error("Destination must be encrypted!!!")
