@@ -8,6 +8,7 @@ from aws_cdk import (
     Aspects,
     aws_s3_notifications,
     Annotations,
+    Tags,
     # aws_sqs as sqs,
 )
 from constructs import Construct
@@ -62,6 +63,8 @@ class AspectDemoStack(Stack):
         source_bucket.add_object_created_notification(notification)        
 
         Aspects.of(self).add(EncryptionAspect())
+        Tags.of(self).add("key", "value")
+        Tags.of(self).add("Project", "demo-app")
 
 @jsii.implements(IAspect)
 class EncryptionAspect:
