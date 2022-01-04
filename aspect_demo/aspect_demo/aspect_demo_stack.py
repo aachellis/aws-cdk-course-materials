@@ -5,6 +5,7 @@ from aws_cdk import (
     aws_iam as iam,
     aws_lambda as lambda_,
     IAspect,
+    Aspects,
     aws_s3_notifications,
     # aws_sqs as sqs,
 )
@@ -57,6 +58,8 @@ class AspectDemoStack(Stack):
 
         # Assign notification for the s3 event type (ex: OBJECT_CREATED)
         source_bucket.add_object_created_notification(notification)        
+
+        Aspects.of(self).add(EncryptionAspect())
 
 @jsii.implements(IAspect)
 class EncryptionAspect:
