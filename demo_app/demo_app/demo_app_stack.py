@@ -26,7 +26,7 @@ class DemoAppStack(Stack):
             iam.ManagedPolicy.from_aws_managed_policy_name("AmazonS3FullAccess")
         )
         role.add_managed_policy(
-            iam.ManagedPolicy.from_aws_managed_policy_name("AWSLambdaBasicExecutionRole")
+            iam.ManagedPolicy.from_aws_managed_policy_name("service-role/AWSLambdaBasicExecutionRole")
         )
 
         # Create s3 bucket
