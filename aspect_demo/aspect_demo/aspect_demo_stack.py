@@ -68,4 +68,4 @@ class EncryptionAspect:
         if isinstance(construct, s3.CfnBucket):
             if str(construct.bucket_name) == "demo-dest-865":
                 if str(construct.bucket_encryption) == 'None':
-                    Annotations.of(construct).addError("Destination Bucket should be encrypted!!!")
+                    Annotations.of(construct).add_error("Destination Bucket should be encrypted!!!")
