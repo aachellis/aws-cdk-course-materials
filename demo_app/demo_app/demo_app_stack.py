@@ -4,7 +4,7 @@ from aws_cdk import (
     aws_s3 as s3,
     aws_iam as iam,
     aws_lambda as lambda_,
-    aws_s3_notification,
+    aws_s3_notifications,
     # aws_sqs as sqs,
 )
 from constructs import Construct
@@ -62,7 +62,7 @@ class DemoAppStack(Stack):
         )
 
         # Create s3 notification for lambda function
-        notification = aws_s3_notification.LambdaDestination(function)
+        notification = aws_s3_notifications.LambdaDestination(function)
 
         # Assign notification for the s3 event type (ex: OBJECT_CREATED)
         source_bucket.add_object_created_notification(notification)
