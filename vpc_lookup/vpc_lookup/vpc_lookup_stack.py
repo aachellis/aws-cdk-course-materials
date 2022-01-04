@@ -1,6 +1,8 @@
 from aws_cdk import (
     # Duration,
     Stack,
+    aws_ec2 as ec2,
+    CfnOutput,
     # aws_sqs as sqs,
 )
 from constructs import Construct
@@ -11,9 +13,11 @@ class VpcLookupStack(Stack):
         super().__init__(scope, construct_id, **kwargs)
 
         # The code that defines your stack goes here
+        vpc = ec2.Vpc.from_lookup(self, "VPC", vpc_id='vpc-0486bb014529f422b')
 
-        # example resource
-        # queue = sqs.Queue(
-        #     self, "VpcLookupQueue",
-        #     visibility_timeout=Duration.seconds(300),
-        # )
+        subnets = vpc.select_subnets(subnet_type=ec2.SubnetType.PUBLIC)
+
+        CfnOutput(
+            self, "publicSubnets",
+            value=str(subnets.subnet_ids)
+        )
