@@ -58,7 +58,7 @@ class DemoAppStack(Stack):
                 'DestinationBucket': dest_bucket.bucket_name
             },
             role=role, 
-            code=lambda_.Code.asset("./lambda")
+            code=lambda_.Code.from_asset("./lambda")
         )
 
         # Create s3 notification for lambda function
