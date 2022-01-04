@@ -15,4 +15,8 @@ class ParameterStoreStack(Stack):
         # The code that defines your stack goes here
         string_param = ssm.StringParameter.value_for_string_parameter(self, "string-parameter")
 
-        CfnOutput(self, "parameter", value=string_param)
+        string_param_lookup = ssm.StringParameter.value_from_lookup(self, "string-parameter")
+
+        CfnOutput(self, "deployment-parameter", value=string_param)
+
+        CfnOutput(self, 'synthesis-parameter', value=string_param_lookup)
