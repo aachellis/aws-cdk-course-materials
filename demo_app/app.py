@@ -11,7 +11,7 @@ prod = cdk.Environment(account='725124995909', region='ap-south-1')
 
 app = cdk.App()
 DemoAppStack(app, "DemoAppStack",
-    env=dafault, prod_env=False
+    env=default, prod_env=False
 )
 
 DemoAppStack(app, "DemoAppStack",
