@@ -14,7 +14,7 @@ class VpcLookupStack(Stack):
 
         # The code that defines your stack goes here
         vpcid = self.node.try_get_context("vpcid")
-        vpc = ec2.Vpc.from_lookup(self, "VPC", vpc_id=vpcids)
+        vpc = ec2.Vpc.from_lookup(self, "VPC", vpc_id=vpcid)
 
         subnets = vpc.select_subnets(subnet_type=ec2.SubnetType.PUBLIC)
 
