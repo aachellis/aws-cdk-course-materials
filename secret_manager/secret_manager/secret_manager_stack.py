@@ -14,7 +14,7 @@ class SecretManagerStack(Stack):
         super().__init__(scope, construct_id, **kwargs)
 
         # The code that defines your stack goes here
-        key = kms.key.from_key_arn(self, "kms-key", "arn:aws:kms:ap-south-1:386768119616:key/ffd92422-cb1e-424d-b87d-85d580c29baf")
+        key = kms.Key.from_key_arn(self, "kms-key", "arn:aws:kms:ap-south-1:386768119616:key/ffd92422-cb1e-424d-b87d-85d580c29baf")
 
         secret = sm.Secret.from_secret_attributes(
             self, "secret",
