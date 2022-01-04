@@ -18,7 +18,7 @@ class SecretManagerStack(Stack):
 
         secret = sm.Secret.from_secret_attributes(
             self, "secret",
-            secret_arn="arn:aws:secretsmanager:ap-south-1:386768119616:secret:user_password-w6a6Tb",
+            secret_complete_arn ="arn:aws:secretsmanager:ap-south-1:386768119616:secret:user_password-w6a6Tb",
             encryption_key=key
         )
 
