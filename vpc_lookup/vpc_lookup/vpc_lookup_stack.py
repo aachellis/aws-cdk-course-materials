@@ -13,7 +13,8 @@ class VpcLookupStack(Stack):
         super().__init__(scope, construct_id, **kwargs)
 
         # The code that defines your stack goes here
-        vpc = ec2.Vpc.from_lookup(self, "VPC", vpc_id='vpc-0486bb014529f422b')
+        vpcid = self.node.try_get_context("vpcid")
+        vpc = ec2.Vpc.from_lookup(self, "VPC", vpc_id=vpcids)
 
         subnets = vpc.select_subnets(subnet_type=ec2.SubnetType.PUBLIC)
 
