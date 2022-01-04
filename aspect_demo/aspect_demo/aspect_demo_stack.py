@@ -4,7 +4,7 @@ from aws_cdk import (
     aws_s3 as s3,
     aws_iam as iam,
     aws_lambda as lambda_,
-    Aspect,
+    IAspect,
     aws_s3_notifications,
     # aws_sqs as sqs,
 )
