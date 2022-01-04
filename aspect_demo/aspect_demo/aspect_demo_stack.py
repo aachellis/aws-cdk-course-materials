@@ -64,5 +64,6 @@ class AspectDemoStack(Stack):
 @jsii.implements(IAspect)
 class EncryptionAspect:
     def visit(self, construct):
-        print("------")
-        print(type(construct))
+        if isinstance(construct, s3.CfnBucket):
+            print("------")
+            print(type(construct))
