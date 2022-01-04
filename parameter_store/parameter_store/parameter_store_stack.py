@@ -19,7 +19,7 @@ class ParameterStoreStack(Stack):
 
         string_param_lookup = ssm.StringParameter.value_from_lookup(self, "string-parameter")
 
-        secure_string_param = SecretValue.ssm_secure('secure-parameter', '1')
+        secure_string_param = SecretValue.ssm_secure('secure-parameter', '2')
 
         iam.User(
             self, "user",
