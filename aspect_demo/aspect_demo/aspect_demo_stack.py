@@ -39,7 +39,8 @@ class AspectDemoStack(Stack):
         )
         dest_bucket = s3.Bucket(
             self, "cdk-dest-bucket",
-            bucket_name="demo-dest-865"
+            bucket_name="demo-dest-865",
+            encryption=s3.BucketEncryption.KMS_MANAGED
         )
 
         # Create Lambda function
