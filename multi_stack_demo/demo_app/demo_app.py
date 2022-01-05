@@ -30,24 +30,14 @@ class DemoApp(Stack):
         )
 
         # Create s3 bucket
-        if prod_env:
-            source_bucket = s3.Bucket(
-                self, "cdk-source-bucket",
-                bucket_name="demo-source-865-prod"
-            )
-            dest_bucket = s3.Bucket(
-                self, "cdk-dest-bucket",
-                bucket_name="demo-dest-865-prod"
-            )
-        else:
-            source_bucket = s3.Bucket(
-                self, "cdk-source-bucket",
-                bucket_name="demo-source-865-nonprod"
-            )
-            dest_bucket = s3.Bucket(
-                self, "cdk-dest-bucket",
-                bucket_name="demo-dest-865-nonprod"
-            )
+        source_bucket = s3.Bucket(
+            self, "cdk-source-bucket",
+            bucket_name="demo-source-866"
+        )
+        dest_bucket = s3.Bucket(
+            self, "cdk-dest-bucket",
+            bucket_name="demo-dest-866"
+        )
 
         # Create Lambda function
         first_function = lambda_.Function(
