@@ -17,6 +17,6 @@ app = cdk.App()
 
 new_req = NewRequirements(app, "new-requirements", env=env)
 DemoApp(app, "demo-app", env=env, new_lambda=new_req.second_function)
-MultiStackDemoStack(app, "MultiStackDemoStack",)
+# MultiStackDemoStack(app, "MultiStackDemoStack",)
 
 app.synth()
