@@ -48,7 +48,7 @@ class DemoApp(Stack):
                 'DestinationBucket': dest_bucket.bucket_name
             },
             role=role, 
-            code=lambda_.Code.from_asset("./lambda/copy-object")
+            code=lambda_.Code.from_asset("./lambda/copy_object")
         )
 
         # Create s3 notification for lambda function
