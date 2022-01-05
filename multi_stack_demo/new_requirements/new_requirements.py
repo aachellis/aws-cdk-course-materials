@@ -9,7 +9,7 @@ from constructs import Construct
 class NewRequirements(Stack):
 
     def __init__(self, scope, id, **kwargs):
-        super().init(scope, id, **kwargs)
+        super().__init__(scope, id, **kwargs)
 
         # Craete dynamodb table
         dynamo_table = dynamodb.Table (
