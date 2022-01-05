@@ -27,7 +27,7 @@ class NewRequirements(Stack):
             handler="lambda-handler.main",
             function_name="second_lambda",
             environment={
-                'TABLE_NAME': dynamodb.table_name,
+                'TABLE_NAME': dynamo_table.table_name,
             },
             code=lambda_.Code.from_asset("./lambda/write_to_dynamo")
         )
